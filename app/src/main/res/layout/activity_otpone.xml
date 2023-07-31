@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20sp"
+    android:background="@color/white"
+    tools:context=".Otpone">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="74sp"
+        android:src="@drawable/kcy"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:background="@drawable/black_outline"
+        android:layout_gravity="center"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_width="match_parent"
+            android:layout_height="200sp"
+            android:src="@drawable/kcy30"/>
+
+
+            <EditText
+                android:id="@+id/name"
+                android:background="@drawable/edit_text_bg"
+                android:layout_width="300sp"
+                android:hint="Enter Name"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_height="wrap_content"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="30sp"/>
+
+            <EditText
+                android:id="@+id/date"
+                android:background="@drawable/edit_text_bg"
+                android:layout_width="300sp"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                android:hint="Enter your Date of Birth"
+                android:padding="10sp"
+                android:layout_height="wrap_content"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="30sp"/>
+
+            <EditText
+                android:id="@+id/pan"
+                android:background="@drawable/edit_text_bg"
+                android:layout_width="300sp"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                android:hint="Enter your PAN No"
+                android:padding="10sp"
+                android:layout_height="wrap_content"/>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="50sp"/>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="30sp"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="150sp"
+            android:background="@drawable/redoutline"
+            android:layout_height="40sp"
+            android:textColor="@color/black"
+            android:text="Back"/>
+
+        <View
+            android:layout_width="5dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="150sp"
+            android:layout_height="52sp"
+            android:textColor="@color/white"
+            android:text="Submit"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
