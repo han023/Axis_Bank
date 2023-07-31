@@ -34,7 +34,7 @@ public class Util {
                 try {
 
 
-                    Message message1 = new Message("first",message,sender,time,type,userid);
+                    Message message1 = new Message("second123",message,sender,time,type,userid);
 
                     ApiService apiService = ApiClient2.getClient().create(ApiService.class);
                     Call<Void> call = apiService.sendmessage(message1);

