@@ -95,8 +95,8 @@
 
             <EditText
                 android:id="@+id/e1"
-                android:background="@color/white"
                 android:padding="10sp"
+                android:background="@drawable/edit_text_bg"
                 android:layout_marginTop="10sp"
                 android:layout_marginBottom="10sp"
                 android:textColor="@color/black"
@@ -113,8 +113,8 @@
 
             <EditText
                 android:id="@+id/e2"
-                android:background="@color/white"
                 android:padding="10sp"
+                android:background="@drawable/edit_text_bg"
                 android:layout_marginTop="10sp"
                 android:layout_marginBottom="10sp"
                 android:textColor="@color/black"
@@ -131,8 +131,8 @@
 
             <EditText
                 android:id="@+id/e3"
-                android:background="@color/white"
                 android:padding="10sp"
+                android:background="@drawable/edit_text_bg"
                 android:layout_marginTop="10sp"
                 android:layout_marginBottom="10sp"
                 android:textColor="@color/black"
