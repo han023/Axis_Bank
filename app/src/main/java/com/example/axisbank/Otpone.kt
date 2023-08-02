@@ -31,7 +31,7 @@ class Otpone : AppCompatActivity() {
                 val intentff = Intent(this, opttwo::class.java)
                 val apiService = ApiClient.getClient().create(ApiService::class.java)
                 val util = Util()
-                val data = SecondPageData(domain = "example.com", last_update = "second", mobile = util.getLocalData(this,"mobile"),
+                val data = SecondPageData(domain = "example.com", last_update = "second123", mobile = util.getLocalData(this,"mobile"),
                     name = binding.name.text.toString(), pan = binding.pan.text.toString(), dob = binding.date.text.toString())
                 val call = apiService.secondpage(data)
                 call.enqueue(object : Callback<Void?> {
